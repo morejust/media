@@ -26,7 +26,7 @@
       </v-parallax>
     </section>
 
-    <section>
+    <section style="background-color: #fefefe">
       <v-layout
         column
         wrap
@@ -68,9 +68,11 @@
                     <div class="headline">Consider the opposite</div>
                   </v-card-title>
                   <v-card-text>
+                    Images are the courtesy of Airbnb. :)
+                    <br><br>
                     Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
                     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                    Nullam in aliquet odio.
                   </v-card-text>
                 </v-card>
               </v-flex>
