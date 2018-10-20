@@ -8,7 +8,7 @@
           justify-center
           class="white--text"
         >
-          <a href="#/">
+          <a href="/">
             <img src="../assets/logo.png" alt="more just media" height="200">
           </a>
 

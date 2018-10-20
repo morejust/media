@@ -8,7 +8,7 @@
           justify-center
           class="white--text"
         >
-          <a href="#/">
+          <a href="/">
             <img src="../assets/logo.png" alt="more just media" height="200">
           </a>
 
@@ -18,7 +18,7 @@
             class="blue lighten-2 mt-5"
             dark
             large
-            href="#/analyze"
+            href="/analyze"
           >
             Get Started
           </v-btn>
