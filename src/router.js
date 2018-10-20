@@ -15,7 +15,8 @@ export default new Router({
     {
       path: '/read',
       name: 'read',
-      component: ReadMode
+      component: ReadMode,
+      props: ({ query }) => ({ url: query.url }),
     },
     {
       path: '/about',

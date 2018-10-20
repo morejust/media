@@ -12,6 +12,8 @@
           Scotland, Northern Ireland and the north of England have been advised to batten down the hatches for the first named storm of the season.
         </h1>
         <p>
+        <a href="#">{{ url }}</a>
+        <p>
           The Met Office issued the weather alert from 6am on Wednesday, when Storm Ali was expected to roll in from the Atlantic bringing gusts of 80mph.
         </p>
         <p>
@@ -60,3 +62,11 @@
     margin-bottom: 50px;
   }
 </style>
+
+<script>
+
+  export default {
+    name: 'ReadMode',
+    props: ["url"],
+  }
+</script>

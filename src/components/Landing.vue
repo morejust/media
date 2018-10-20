@@ -101,15 +101,40 @@
           <em>
             Read any article
           </em>
-          <input type="text">
-          <v-btn
-            class="blue lighten-2 mt-5"
-            dark
-            large
-            href="#/read"
-          >
-            Get Started
-          </v-btn>
+
+
+
+          <v-form>
+            <v-container>
+
+              <v-layout row wrap>
+
+                <v-flex xs12>
+                  <v-text-field
+                    v-model="url"
+                    label="Read any article"
+                    required
+                    solo
+                    >
+
+                    <v-btn
+                      slot="append-outer"
+                      style="top: -58px"
+                      offset-y
+                      class="blue lighten-2 mt-5"
+                      dark
+                      large
+                      :href="`#/read/${url}`"
+                    >
+                      Process
+                    </v-btn>
+
+                </v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-form>
+
         </v-layout>
       </v-parallax>
     </section>
@@ -188,11 +213,11 @@
   import hero from '../assets/hero.jpeg'
   import plane from '../assets/plane.jpg'
   import section from '../assets/section.jpg'
-  import { VParallax, VCard } from 'vuetify'
 
   export default {
     name: 'Landing',
-    data: () => ({
+    data: ({ url }) => ({
+      url: url,
       hero: hero,
       plane: plane,
       section: section,
