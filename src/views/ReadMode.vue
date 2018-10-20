@@ -68,7 +68,7 @@ export default {
 
         if (!text) throw new Error(`Bad API response: Empty text`)
 
-        this.article = { title, text, html, image, entities }
+        this.article = { url, title, text, html, image, entities }
 
         console.log('this.article', this.article)
       }

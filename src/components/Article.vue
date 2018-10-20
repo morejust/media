@@ -15,8 +15,13 @@
 
     <p></p>
 
-    <p v-if="isHTMLReady" v-html="rawHtml">
-    </p>
+    <div v-if="isHTMLReady">
+      <p v-html="rawHtml">
+      </p>
+      <p>
+        Source: <a :href="url">{{ article.url }}</a>
+      </p>
+    </div>
 
     <p v-else>
       Markup is getting ready...
@@ -117,7 +122,8 @@ export default {
 
     }
   },
-  data: ({ article: { title, text, html, entities } }) => ({
+  data: ({ article: { url, title, text, html, entities } }) => ({
+    url,
     title,
     text,
     html,
