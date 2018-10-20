@@ -11,7 +11,7 @@
         </a>
 
         <p>
-          <a href="#">{{ url }}</a>
+          <a :href="url">{{ url }}</a>
         </p>
 
         <h1 v-if="isLoading">Loading...</h1>
