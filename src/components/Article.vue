@@ -19,7 +19,7 @@
       <p v-html="rawHtml">
       </p>
       <p>
-        Source: <a :href="url">{{ article.url }}</a>
+        Source: <a :href="article.url">{{ article.url }}</a>
       </p>
     </div>
 
