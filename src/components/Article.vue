@@ -79,6 +79,7 @@ export default {
       .flatMap(entity => {
         return entity.mentions
       })
+      .filter(entity => entity.magnitude != 0)
       .map(entity => {
         const { offset, content, sentiment, magnitude } = entity
 
@@ -87,25 +88,24 @@ export default {
           : `hsla(360, ${(Math.abs(sentiment.toFixed(3)) + 0.5) * 100}%, 50%, ${Math.abs(magnitude.toFixed(3))})`
         const style = `background-color: ${highlightColor}`
 
-        const html = (`
-          <span style="${style}">
-            ${content}
-          </span>
-        `)
+        const html = (
+          `<span style="${style}" class="highlight highlight-sentiment-${offset}">${content}</span>`
+        )
 
         return { type: 'sentiment', offset, html, content }
       })
 
       console.log(text)
-      // console.log(ai_tokens)
-      // console.log(html_tokens)
 
-      const tokens = extract(text, [ ...ai_tokens, ...html_tokens ])
+      this.highlights = [ ...ai_tokens, ...html_tokens ]
+
+      const tokens = extract(text, this.highlights)
 
       console.log(tokens)
       const rawHtml = tokens.map(token => token.html || token.content).join('')
 
-      console.log('rawHtml', rawHtml)
+      console.log(rawHtml)
+
       if (rawHtml) {
         this.rawHtml = rawHtml
         this.isHTMLReady = true
@@ -122,6 +122,7 @@ export default {
     isHTMLReady: false,
     isAIReady: false,
     rawHtml: '',
+    highlights: [],
   })
 }
 </script>
