@@ -37,34 +37,47 @@ export default {
   created: async function () {
     const { url } = this
 
-    try {
-      const parsing_result = await api.analyse(url)
-      console.log(parsing_result)
-
-      const { post, html, entities } = parsing_result
-
-      if (!post) throw new Error(`Bad API response: No post data`)
-
-      const { title, text } = post
-
-      if (!text) throw new Error(`Bad API response: Empty text`)
-
-      this.article = { title, text, html, entities }
-    }
-    catch (err) {
-      this.error = err.message
-      console.log('err', err.message)
-    }
-    finally {
-      this.isLoading = false
-    }
+    this.loadArticle(url)
   },
   data: function ({ url }) {
     return {
       isLoading: true,
       error: '',
-      article: {
-        title: ''
+      article: {}
+    }
+  },
+  watch: {
+    url: function (newUrl) {
+      this.isLoading = true
+      this.error = false
+
+      this.loadArticle(newUrl)
+    }
+  },
+  methods: {
+    loadArticle: async function (url) {
+      try {
+        const parsing_result = await api.analyse(url)
+        console.log(parsing_result)
+
+        const { post, html, entities } = parsing_result
+
+        if (!post) throw new Error(`Bad API response: No post data`)
+
+        const { title, text } = post
+
+        if (!text) throw new Error(`Bad API response: Empty text`)
+
+        this.article = { title, text, html, entities }
+
+        console.log('this.article', this.article)
+      }
+      catch (err) {
+        this.error = err.message
+        console.log('err', err.message)
+      }
+      finally {
+        this.isLoading = false
       }
     }
   },
