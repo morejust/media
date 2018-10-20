@@ -1,7 +1,7 @@
 <template>
   <v-content>
     <section>
-      <v-parallax :src="hero" height="600">
+      <v-parallax :src="nasa" height="600">
         <v-layout
           column
           align-center
@@ -131,6 +131,7 @@
 
 <script>
 import hero from '@/assets/hero.jpeg'
+import nasa from '@/assets/nasa1965.jpg'
 import plane from '@/assets/plane.jpg'
 import section from '@/assets/section.jpg'
 // @ is an alias to /src
@@ -144,6 +145,7 @@ export default {
     InfoCard
   },
   data: () => ({
+    nasa,
     hero: hero,
     plane: plane,
     section: section
