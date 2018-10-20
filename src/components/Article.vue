@@ -47,6 +47,9 @@
 <script>
 import { split, extract, glue } from '@/services/hairsplitter'
 
+const getColor = (hue, saturation, alpha) =>
+  `hsla(${hue}, ${(saturation * 100).toFixed(0)}%, 50%, ${(alpha * 100).toFixed(0)})`
+
 export default {
   name: 'Article',
   props: ["article"],
@@ -84,8 +87,9 @@ export default {
         const { offset, content, sentiment, magnitude } = entity
 
         const highlightColor = sentiment > 0
-          ? `hsla(118, ${(Math.abs(sentiment.toFixed(3)) + 0.5) * 100}%, 50%, ${Math.abs(magnitude.toFixed(3))})`
-          : `hsla(360, ${(Math.abs(sentiment.toFixed(3)) + 0.5) * 100}%, 50%, ${Math.abs(magnitude.toFixed(3))})`
+          ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
+          : getColor(360, Math.abs(sentiment) + 0.5, magnitude)
+
         const style = `background-color: ${highlightColor}`
 
         const html = (
