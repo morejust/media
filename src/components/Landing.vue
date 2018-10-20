@@ -8,7 +8,10 @@
           justify-center
           class="white--text"
         >
-          <img src="../assets/logo.png" alt="more just media" height="200">
+          <a href="#/">
+            <img src="../assets/logo.png" alt="more just media" height="200">
+          </a>
+
           <h1 class="white--text mb-2 display-1 text-xs-center">Reading. Reinvented.</h1>
           <div class="subheading mb-3 text-xs-center">Powered by morejust.media</div>
           <v-btn
@@ -124,7 +127,7 @@
                       class="blue lighten-2 mt-5"
                       dark
                       large
-                      :href="`#/read/${url}`"
+                      :href="`#/read?url=${url}`"
                     >
                       Process
                     </v-btn>

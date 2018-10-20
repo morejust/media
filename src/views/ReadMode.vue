@@ -5,7 +5,9 @@
     align-center
     justify-center
     >
-      <img src="../assets/logo.png" alt="more just media" height="200">
+      <a href="#/">
+        <img src="../assets/logo.png" alt="more just media" height="200">
+      </a>
 
       <article class="reading-mode simple-container">
         <h1>
