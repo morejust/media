@@ -64,11 +64,11 @@ export default {
 
         if (!post) throw new Error(`Bad API response: No post data`)
 
-        const { title, text } = post
+        const { title, text, image } = post
 
         if (!text) throw new Error(`Bad API response: Empty text`)
 
-        this.article = { title, text, html, entities }
+        this.article = { title, text, html, image, entities }
 
         console.log('this.article', this.article)
       }

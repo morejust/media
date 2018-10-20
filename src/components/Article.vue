@@ -6,6 +6,15 @@
       {{ article.title }}
     </h1>
 
+    <v-layout justify-center>
+      <v-flex xs12 sm8>
+          <v-img :src="article.image" max-width="600px">
+          </v-img>
+      </v-flex>
+    </v-layout>
+
+    <p></p>
+
     <p v-if="isHTMLReady" v-html="rawHtml">
     </p>
 
