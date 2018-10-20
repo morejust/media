@@ -15,7 +15,7 @@
             class="blue lighten-2 mt-5"
             dark
             large
-            href="/read"
+            href="#/read"
           >
             Get Started
           </v-btn>
@@ -101,11 +101,12 @@
           <em>
             Read any article
           </em>
+          <input type="text">
           <v-btn
             class="blue lighten-2 mt-5"
             dark
             large
-            href="/pre-made-themes"
+            href="#/read"
           >
             Get Started
           </v-btn>
