@@ -16,7 +16,21 @@ export const split = (text, { offset, content }) => {
 export const extract = (text, markup) => {
   const byOffset = (a,b) => {
     return a.offset - b.offset || (
-      a.type === 'text' ? 1 : -1
+      a.type === 'begin' ? -1 : 0
+    ) || (
+      b.type === 'begin' ? 1 : 0
+    ) || (
+      a.type === 'end' ? 1 : 0
+    ) || (
+      b.type === 'end' ? -1 : 0
+    ) || (
+      a.type === 'html' ? -1 : 0
+    ) || (
+      b.type === 'html' ? 1 : 0
+    ) || (
+      a.type === 'text' ? -1 : 0
+    ) || (
+      b.type === 'text' ? 1 : 0
     )
   }
 
