@@ -9,6 +9,10 @@
       {{ article.title }}
     </h1>
 
+    <p v-if="article.fake">
+      <i style="color: #dd0000;">This source is known for publishing fake news</i>
+    </p>
+
     <v-layout justify-center>
       <v-flex xs12>
         <v-img :src="article.image" max-heigth="400px">
@@ -28,7 +32,6 @@
     <p v-else>
       Markup is getting ready...
       <br> <br>
-      {{ article.text }}
     </p>
   </article>
 
