@@ -7,9 +7,12 @@
             <div class="headline">Company info</div>
           </v-card-title>
           <v-card-text>
-            Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+            Media objectivity and mistake-proof are becoming more and weaker.
+            As our society lives in an era of digitation and connected lives,
+            people tend to believe every information they face on the internet,
+            without thinking. That's where our solution comes.
+
+            Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
           </v-card-text>
         </v-card>
       </v-flex>
@@ -19,7 +22,7 @@
             <div class="headline">Contact us</div>
           </v-card-title>
           <v-card-text>
-            Lorem ipsum dolor sit amet.
+
           </v-card-text>
           <v-list class="transparent">
             <v-list-tile>
