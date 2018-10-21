@@ -3,8 +3,7 @@
   <v-form v-on:submit.prevent="submitForm">
     <v-container>
 
-      <v-layout row wrap>
-
+      <v-layout column wrap>
         <v-flex xs12>
           <v-text-field
             v-model="url"
@@ -13,7 +12,9 @@
             class="search-url"
             solo
             >
-
+          </v-text-field>
+        </v-flex>
+        <v-flex xs12>
             <v-btn
               slot="append-outer"
               style="top: -58px"
