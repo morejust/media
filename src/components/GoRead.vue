@@ -88,6 +88,10 @@ export default {
 
     submitForm: async function () {
       try {
+        if (!this.url) {
+          return
+        }
+
         const isURL = /^http(s)?:\/\//.test(this.url)
 
         if (!isURL) {
