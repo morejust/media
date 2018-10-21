@@ -1,17 +1,41 @@
-export const split = (text, { offset, content }) => {
-  const head = text.substr(0, offset)
-  const need = text.substr(offset, wordLength)
-  const tail = text.substr(offset + wordLength)
+export const getColor = (hue, saturation, alpha) =>
+  `hsla(${hue}, ${(saturation * 100).toFixed(0)}%, 50%, ${(alpha * 100).toFixed(0)})`
 
-  return {
-    head,
-    need,
-    offset,
-    tail,
-    wordLength,
-  }
+export const htmlForSentiment = (entity) => {
+  const { sentiment, magnitude, offset, content } = entity
+
+  const highlightColor = sentiment > 0
+    ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
+    : getColor(360, Math.abs(sentiment) + 0.5, magnitude)
+
+  const style = `background-color: ${highlightColor}`
+
+  return (
+    `<span
+      style="${style}"
+      class="highlight highlight-sentiment-${offset}"
+      data-type="sentiment"
+      data-content="${content}"
+      data-offset="${offset}"
+      data-magnitude=${magnitude}
+      data-sentiment=${sentiment}
+      >${content}</span>`
+  )
 }
 
+export const convertAiTokens = (text, entities) =>
+  entities.map(entity => {
+    const { offset, content } = entity
+    const html = htmlForSentiment(entity)
+    return { type: 'sentiment', offset, html, content }
+  })
+
+export const convertHtml = (text, html) =>
+  html.map(tag => {
+    const [ offset, html ] = tag
+
+    return { type: 'html', offset, html, content: '' }
+  })
 
 export const extract = (text, markup) => {
   const byOffset = (a,b) => {

@@ -1,6 +1,7 @@
 <template>
 
   <article class="reading-mode simple-container">
+    <Tip v-if="isShowingTip" :text="tip" />
 
     <h1>
       {{ article.title }}
@@ -8,24 +9,23 @@
 
     <v-layout justify-center>
       <v-flex xs12 sm8>
-          <v-img :src="article.image" max-width="600px">
-          </v-img>
+        <v-img :src="article.image" max-width="600px">
+        </v-img>
       </v-flex>
     </v-layout>
 
     <p></p>
 
-    <div v-if="isHTMLReady">
-      <p v-html="rawHtml">
-      </p>
+    <v-container v-if="isHTMLReady">
+      <InteractiveText :html="rawHtml" :callback="onHighlight" />
       <p>
-        Source: <a :href="article.url">{{ article.url }}</a>
+        Source: <a :href="article.url" target="_blank">{{ article.url }}</a>
       </p>
-    </div>
+    </v-container>
 
     <p v-else>
       Markup is getting ready...
-
+      <br> <br>
       {{ article.text }}
     </p>
   </article>
@@ -35,7 +35,7 @@
 <style type="text/css">
   .reading-mode {
     text-align: left;
-    max-width: 800px;
+    max-width: 700px;
 
     font-family: 'Merriweather', serif;
     line-height: 1.6;
@@ -50,10 +50,10 @@
 </style>
 
 <script>
-import { split, extract, glue } from '@/services/hairsplitter'
+import Tip from '@/components/Tip.vue'
+import InteractiveText from '@/components/InteractiveText.vue'
 
-const getColor = (hue, saturation, alpha) =>
-  `hsla(${hue}, ${(saturation * 100).toFixed(0)}%, 50%, ${(alpha * 100).toFixed(0)})`
+import { extract, convertHtml, convertAiTokens } from '@/services/hairsplitter'
 
 export default {
   name: 'Article',
@@ -70,39 +70,46 @@ export default {
       this.highlight()
     }
   },
+  components: {
+    InteractiveText,
+    Tip,
+  },
   methods: {
+    onHighlight: function (element) {
+      if (element) {
+        this.isShowingTip = true
+        this.showTip(element.dataset)
+      } else {
+        this.isShowingTip = false
+      }
+    },
+    showTip: function (data) {
+      const { offset, type, content, sentiment, magnitude } = data
+
+      console.log('highlight', { offset, type, content, sentiment })
+
+      this.tip = `
+        "${content}"
+
+        Google API shows sentiment of ${sentiment} with ${magnitude}.
+
+        Pay attention to strong emotional message text sends.
+        Usually, it can be used to manipulate your opinion.
+      `
+    },
     highlight: function () {
       const { title, text, html, entities } = this.article
 
       if (!title) return
 
-      const html_tokens = html.map(tag => {
-        const [ offset, html ] = tag
+      const html_tokens = convertHtml(text, html)
 
-        return { type: 'html', offset, html, content: '' }
-      })
+      const filteredEntities = entities
+        .filter(entity => entity.salience > 0.01)
+        .flatMap(entity => entity.mentions)
+        .filter(entity => entity.magnitude != 0)
 
-      const ai_tokens = entities
-      .filter(entity => entity.salience > 0.01)
-      .flatMap(entity => {
-        return entity.mentions
-      })
-      .filter(entity => entity.magnitude != 0)
-      .map(entity => {
-        const { offset, content, sentiment, magnitude } = entity
-
-        const highlightColor = sentiment > 0
-          ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
-          : getColor(360, Math.abs(sentiment) + 0.5, magnitude)
-
-        const style = `background-color: ${highlightColor}`
-
-        const html = (
-          `<span style="${style}" class="highlight highlight-sentiment-${offset}">${content}</span>`
-        )
-
-        return { type: 'sentiment', offset, html, content }
-      })
+      const ai_tokens = convertAiTokens(text, filteredEntities)
 
       console.log(text)
 
@@ -128,6 +135,9 @@ export default {
     text,
     html,
     entities,
+
+    isShowingTip: false,
+    tip: '',
 
     isHTMLReady: false,
     isAIReady: false,
