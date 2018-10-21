@@ -1,8 +1,8 @@
 <template>
 
-  <v-layout class="fixed">
-    <v-flex xs12 sm6>
-      <v-card class="popover">
+  <v-layout class="fixed popover">
+    <v-flex xs12 sm4 offset-sm8>
+      <v-card>
 
         <v-card-title primary-title>
           <div>

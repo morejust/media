@@ -1,7 +1,9 @@
 <template>
+<v-container>
+
+  <Tip v-if="isShowingTip" :text="tip" class="tip" />
 
   <article class="reading-mode simple-container">
-    <Tip v-if="isShowingTip" :text="tip" />
 
     <h1>
       {{ article.title }}
@@ -30,6 +32,7 @@
     </p>
   </article>
 
+</v-container>
 </template>
 
 <style type="text/css">
@@ -46,6 +49,10 @@
 
   .reading-mode h1 {
     margin-bottom: 50px;
+  }
+
+  .tip {
+
   }
 </style>
 
