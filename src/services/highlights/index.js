@@ -39,6 +39,16 @@ export const getTipMessage = (data) => {
           by 'one of the'
         `
       }
+    case 'journalism cliches':
+      return {
+        title: `
+          '${content}' is a cliche
+        `,
+        message: `
+          That's unprofessional journalism.
+          Writer uses these words when he has nothing to say, but wants to sound smart.
+        `
+      }
     default:
       return {
         title: `

@@ -8,7 +8,7 @@ export const htmlForHighlight = (highlight, type = 'text') => {
 
   return `<span
     style="${style}"
-    class="highlight highlight-${type} highlight-${type}-${offset}"
+    class="highlight highlight-${type.replace(' ', '-')} highlight-${type.replace(' ', '-')}-${offset}"
     data-type="${type}"
     data-content="${content}"
     data-offset="${offset}"
@@ -23,12 +23,11 @@ export const htmlForSentiment = (entity) => {
     ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
     : getColor(360, Math.abs(sentiment) + 0.5, magnitude)
 
-  const _style = `-webkit-text-decoration-color: ${highlightColor}`
-  const style = `text-decoration-color: ${highlightColor}`
+  const style = `border-bottom: 2px solid ${highlightColor}`
 
   return (
     `<span
-      style="${_style};${style}"
+      style="${style}"
       class="highlight highlight-sentiment-${offset}"
       data-type="sentiment"
       data-content="${content}"
@@ -40,7 +39,9 @@ export const htmlForSentiment = (entity) => {
 }
 
 export const convertTokens = (text, tokens, type) =>
-  tokens.map((token) => {
+tokens
+  .filter(token => token.type === type)
+  .map((token) => {
     const { offset, content } = token
 
     const html = htmlForHighlight(token, type)

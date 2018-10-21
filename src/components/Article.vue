@@ -66,22 +66,26 @@
   }
 
   .highlight {
-    -webkit-text-decoration: underline;
+    /* -webkit-text-decoration: underline;
     -webkit-text-decoration-color: #f4e842;
     text-decoration: underline;
-    text-decoration-color: #f4e842;
+    text-decoration-color: #f4e842; */
+
+    border-bottom: 2px solid #f4e842;
     /* background: #f4e842; */
   }
 
   .highlight-fact {
-    -webkit-text-decoration-color: #ff49bc;
-    text-decoration-color: #ff49bc;
+    /* -webkit-text-decoration-color: #ff49bc;
+    text-decoration-color: #ff49bc; */
+    border-bottom: 2px solid #ff49bc;
     /* background: #ff49bc; */
   }
 
   .highlight-generalization {
-    -webkit-text-decoration-color: #fcb423;
-    text-decoration-color: #fcb423;
+    /* -webkit-text-decoration-color: #fcb423;
+    text-decoration-color: #fcb423; */
+    border-bottom: 2px solid #fcb423;
     /* background: #fcb423; */
   }
 </style>
@@ -144,16 +148,18 @@ export default {
 
       const fact_tokens = convertTokens(text, checkFacts, 'fact')
 
-      const stopwords_tokens = convertTokens(text, stopwords, 'generalization')
+      const general_tokens = convertTokens(text, stopwords, 'generalization')
+      const cliche_tokens = convertTokens(text, stopwords, 'journalism cliches')
 
       console.log(text)
-      console.log(stopwords_tokens)
+      console.log(cliche_tokens)
 
       this.highlights = [
         ...ai_tokens,
         ...html_tokens,
         ...fact_tokens,
-        ...stopwords_tokens,
+        ...cliche_tokens,
+        ...general_tokens,
       ]
 
       const tokens = extract(text, this.highlights)
