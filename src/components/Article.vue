@@ -51,8 +51,9 @@
     margin-bottom: 50px;
   }
 
-  .tip {
-
+  .reading-mode img {
+    max-width: 100%;
+    height: auto;
   }
 </style>
 
