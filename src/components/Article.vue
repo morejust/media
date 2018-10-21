@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <Tip v-if="isShowingTip" :text="tip" class="tip" />
+  <Tip v-if="isShowingTip" :text="tip" :y="tipOffset" class="tip" />
 
   <article class="reading-mode simple-container">
 
@@ -95,6 +95,7 @@ export default {
     onHighlight: function (element) {
       if (element) {
         this.isShowingTip = true
+        this.tipOffset = element.offsetTop
         this.showTip(element.dataset)
       } else {
         this.isShowingTip = false
@@ -163,6 +164,7 @@ export default {
     entities,
 
     isShowingTip: false,
+    tipOffset: 0,
     tip: {},
 
     isHTMLReady: false,

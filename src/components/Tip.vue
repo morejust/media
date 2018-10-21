@@ -1,6 +1,6 @@
 <template>
 
-  <v-layout class="fixed popover">
+  <v-layout class="absolute popover" :style="'top: ' + (y || 0) + 'px'">
     <v-flex xs12 sm4 offset-sm8>
       <v-card class="card">
 
@@ -24,6 +24,9 @@
   pointer-events: none;
   z-index: 99999;
 }
+.absolute {
+  position: absolute;
+}
 .fixed {
   position: fixed;
 }
@@ -31,6 +34,6 @@
 
 <script>
 export default {
-  props: ['text']
+  props: ['text', 'y']
 }
 </script>
