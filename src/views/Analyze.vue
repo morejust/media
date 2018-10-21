@@ -1,24 +1,29 @@
 <template>
   <v-content>
     <section>
-      <v-parallax :src="plane" dark height="600">
+
+      <v-container fluid fill-height >
         <v-layout
-          column
-          align-center
           justify-center
+          align-center
           class="white--text"
-        >
-          <a href="/">
-            <img src="../assets/logo.png" alt="more just media" height="200">
-          </a>
-
-          <GoRead />
+          >
+          <v-flex text-xs-center>
+              <br>
+              <a href="/">
+                <img src="../assets/logo.png" alt="more just media" height="200">
+              </a>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <GoRead />
+            </v-card>
+          </v-flex>
         </v-layout>
-      </v-parallax>
-    </section>
+      </v-container>
 
-    <section>
-      <InfoCard />
     </section>
 
   </v-content>
