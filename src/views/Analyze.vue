@@ -10,11 +10,11 @@
           >
           <v-flex text-xs-center>
               <br>
+              <br>
+              <br>
               <a href="/">
                 <img src="../assets/logo.png" alt="more just media" height="200">
               </a>
-              <br>
-              <br>
               <br>
               <br>
               <br>
