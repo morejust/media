@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<div>
 
   <Tip v-if="isShowingTip" :text="tip" class="tip" />
 
@@ -10,8 +10,8 @@
     </h1>
 
     <v-layout justify-center>
-      <v-flex xs12 sm8>
-        <v-img :src="article.image" max-width="600px">
+      <v-flex xs12>
+        <v-img :src="article.image" max-heigth="400px">
         </v-img>
       </v-flex>
     </v-layout>
@@ -32,7 +32,7 @@
     </p>
   </article>
 
-</v-container>
+</div>
 </template>
 
 <style type="text/css">
