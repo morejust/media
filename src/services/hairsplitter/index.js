@@ -23,11 +23,12 @@ export const htmlForSentiment = (entity) => {
     ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
     : getColor(360, Math.abs(sentiment) + 0.5, magnitude)
 
+  const _style = `-webkit-text-decoration-color: ${highlightColor}`
   const style = `text-decoration-color: ${highlightColor}`
 
   return (
     `<span
-      style="${style}"
+      style="${_style};${style}"
       class="highlight highlight-sentiment-${offset}"
       data-type="sentiment"
       data-content="${content}"

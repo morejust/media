@@ -66,17 +66,21 @@
   }
 
   .highlight {
+    -webkit-text-decoration: underline;
+    -webkit-text-decoration-color: #f4e842;
     text-decoration: underline;
     text-decoration-color: #f4e842;
     /* background: #f4e842; */
   }
 
   .highlight-fact {
+    -webkit-text-decoration-color: #ff49bc;
     text-decoration-color: #ff49bc;
     /* background: #ff49bc; */
   }
 
   .highlight-generalization {
+    -webkit-text-decoration-color: #fcb423;
     text-decoration-color: #fcb423;
     /* background: #fcb423; */
   }
