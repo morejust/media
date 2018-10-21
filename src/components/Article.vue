@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <Tip v-if="isShowingTip" :text="tip" :y="tipOffset" class="tip" />
+  <Tip v-if="isShowingTip" :text="tip" :y="tipOffset + 32" class="tip" />
 
   <article class="reading-mode simple-container">
 
@@ -64,13 +64,33 @@
   .tip .card {
     background: #f4e842;
   }
+
+  .highlight {
+    text-decoration: underline;
+    text-decoration-color: #f4e842;
+    /* background: #f4e842; */
+  }
+
+  .highlight-fact {
+    text-decoration-color: #ff49bc;
+    /* background: #ff49bc; */
+  }
+
+  .highlight-generalization {
+    text-decoration-color: #fcb423;
+    /* background: #fcb423; */
+  }
 </style>
 
 <script>
 import Tip from '@/components/Tip.vue'
 import InteractiveText from '@/components/InteractiveText.vue'
 
-import { extract, convertHtml, convertAiTokens } from '@/services/hairsplitter'
+import { getTipMessage } from '@/services/highlights'
+
+import {
+  extract, convertHtml, convertTokens, convertAiTokens
+} from '@/services/hairsplitter'
 
 export default {
   name: 'Article',
@@ -102,45 +122,35 @@ export default {
       }
     },
     showTip: function (data) {
-      const { offset, type, content, sentiment, magnitude } = data
-
-      const _sentiment = parseFloat(sentiment) || 0.0
-
-      console.log('highlight', { offset, type, content, sentiment })
-
-      const tip_title = `
-        '${content}' has ${
-          _sentiment > 0 ? 'positive' : 'negative'}
-          sentiment here (${_sentiment.toFixed(2)})
-      `
-
-      const tip_message = `
-        Pay attention to strong emotional message text sends.
-        Usually, it can be used to manipulate your opinion.
-      `
-
-      this.tip = {
-        title: tip_title,
-        message: tip_message
-      }
+      this.tip = getTipMessage(data)
     },
     highlight: function () {
-      const { title, text, html, entities } = this.article
+      const { title, text, html, entities, stopwords, checkFacts } = this.article
 
       if (!title) return
 
       const html_tokens = convertHtml(text, html)
 
       const filteredEntities = entities
-        .filter(entity => entity.salience > 0.01)
+        .filter(entity => entity.salience > 0.001)
         .flatMap(entity => entity.mentions)
         .filter(entity => entity.magnitude != 0)
 
       const ai_tokens = convertAiTokens(text, filteredEntities)
 
-      console.log(text)
+      const fact_tokens = convertTokens(text, checkFacts, 'fact')
 
-      this.highlights = [ ...ai_tokens, ...html_tokens ]
+      const stopwords_tokens = convertTokens(text, stopwords, 'generalization')
+
+      console.log(text)
+      console.log(stopwords_tokens)
+
+      this.highlights = [
+        ...ai_tokens,
+        ...html_tokens,
+        ...fact_tokens,
+        ...stopwords_tokens,
+      ]
 
       const tokens = extract(text, this.highlights)
 
