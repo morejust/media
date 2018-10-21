@@ -6,7 +6,7 @@
       align-center
       justify-center
       >
-        <a href="/">
+        <a href="/analyze">
           <img src="../assets/logo.png" alt="more just media" height="200">
         </a>
 
