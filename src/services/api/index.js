@@ -19,6 +19,10 @@ axios.interceptors.response.use(({ data }) => {
 })
 
 export default {
+  loadURL: (topic) => {
+    return axios.get(`/search?q=${topic}`)
+  },
+
   parse: (url) => {
     return axios.get(`/parse?url=${url}`)
   },
