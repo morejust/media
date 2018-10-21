@@ -25,6 +25,8 @@ export const getTipMessage = (data) => {
         message: `
           Looks like this is one of the main messages in the article.
           Try asking yourself: Could this statement be false?
+
+          <a href="#">It is false? Help us collect the data</a>
         `
       }
     case 'generalization':

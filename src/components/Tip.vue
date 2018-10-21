@@ -8,8 +8,7 @@
           <p>
             {{ text.title }}
           </p>
-          <p>
-            {{ text.message }}
+          <p v-html="text.message">
           </p>
         </v-card-title>
       </v-card>
