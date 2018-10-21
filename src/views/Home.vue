@@ -53,9 +53,9 @@
                     <div class="headline text-xs-center">Balance your bias</div>
                   </v-card-title>
                   <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                    Most of people form prejudices since childhood.
+                    Biases during the life prevents people from thinking openly and making right decisions.
+                    Learn to be independent of prejudices, then you will understand more of this world.
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -68,11 +68,10 @@
                     <div class="headline">Consider the opposite</div>
                   </v-card-title>
                   <v-card-text>
-                    Images are the courtesy of Airbnb. :)
-                    <br><br>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio.
+                    Being only on the one side of the issue, you will never see the whole picture.
+                    You risk to miss a lot of in this case.
+                    Don't restrict your position and you will reach the golden mean.
+                    <br><br><br>
                   </v-card-text>
                 </v-card>
               </v-flex>
@@ -85,9 +84,10 @@
                     <div class="headline text-xs-center">Embrace growth</div>
                   </v-card-title>
                   <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
+                    Embrace the growth to make yourself and the world better!
+                    <br><br>
+                    Images are the courtesy of Airbnb 😊
+                    <br><br><br><br>
                   </v-card-text>
                 </v-card>
               </v-flex>

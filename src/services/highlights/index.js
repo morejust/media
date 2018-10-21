@@ -20,14 +20,11 @@ export const getTipMessage = (data) => {
     case 'fact':
       return {
         title: `
-          '${content}'
+          Does the article prove this fact?
         `,
         message: `
           Looks like this is one of the main messages in the article.
-          Does the text prove this fact? Is this statement obvious?
-          Try asking yourself: Could '${content}' be false?
-
-          Google: '${content}'
+          Try asking yourself: Could this statement be false?
         `
       }
     case 'generalization':
