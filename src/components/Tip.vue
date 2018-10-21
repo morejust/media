@@ -2,12 +2,15 @@
 
   <v-layout class="fixed popover">
     <v-flex xs12 sm4 offset-sm8>
-      <v-card>
+      <v-card class="card">
 
         <v-card-title primary-title>
-          <div>
-            {{ text }}
-          </div>
+          <p>
+            {{ text.title }}
+          </p>
+          <p>
+            {{ text.message }}
+          </p>
         </v-card-title>
       </v-card>
     </v-flex>

@@ -55,6 +55,15 @@
     max-width: 100%;
     height: auto;
   }
+
+  .tip {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .tip .card {
+    background: #f4e842;
+  }
 </style>
 
 <script>
@@ -94,16 +103,25 @@ export default {
     showTip: function (data) {
       const { offset, type, content, sentiment, magnitude } = data
 
+      const _sentiment = parseFloat(sentiment) || 0.0
+
       console.log('highlight', { offset, type, content, sentiment })
 
-      this.tip = `
-        "${content}"
+      const tip_title = `
+        '${content}' has ${
+          _sentiment > 0 ? 'positive' : 'negative'}
+          sentiment here (${_sentiment.toFixed(2)})
+      `
 
-        Google API shows sentiment of ${sentiment} with ${magnitude}.
-
+      const tip_message = `
         Pay attention to strong emotional message text sends.
         Usually, it can be used to manipulate your opinion.
       `
+
+      this.tip = {
+        title: tip_title,
+        message: tip_message
+      }
     },
     highlight: function () {
       const { title, text, html, entities } = this.article
@@ -145,7 +163,7 @@ export default {
     entities,
 
     isShowingTip: false,
-    tip: '',
+    tip: {},
 
     isHTMLReady: false,
     isAIReady: false,
