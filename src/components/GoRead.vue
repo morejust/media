@@ -73,10 +73,8 @@ const topics = [
   'Donald Trump',
   'Putin',
   'Catalunia',
-  'HackUPC',
   'Germany',
   'Spain',
-  'TheOnion',
 ]
 
 export default {
@@ -88,15 +86,20 @@ export default {
     },
 
     submitForm: async function () {
-      const isURL = /^http(s)?:\/\//.test(this.url)
+      try {
+        const isURL = /^http(s)?:\/\//.test(this.url)
 
-      if (!isURL) {
-        const topic = this.url
-        const { url } = await api.loadURL(topic)
-        this.url = url
+        if (!isURL) {
+          const topic = this.url
+          const { url } = await api.loadURL(topic)
+          this.url = url
+        }
+
+        this.loadURL(this.url)
+
+      } catch (err) {
+        this.url = ''
       }
-
-      this.loadURL(this.url)
     },
 
     loadURL: url => {
