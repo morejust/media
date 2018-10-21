@@ -72,7 +72,6 @@ const topics = [
   'iPhone',
   'Donald Trump',
   'Putin',
-  'Catalunia',
   'Germany',
   'Spain',
 ]
@@ -81,8 +80,10 @@ export default {
   name: 'GoRead',
 
   methods: {
-    fillExample: function () {
-      this.url = randomElement(topics)
+    fillExample: async function () {
+      const topic = randomElement(topics)
+      const { url } = await api.loadURL(topic)
+      this.url = url
     },
 
     submitForm: async function () {
