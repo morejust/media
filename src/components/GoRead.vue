@@ -36,7 +36,7 @@
               large
               v-on:click="fillExample"
             >
-              Example
+              Random Article
             </v-btn>
 
           </v-text-field>
