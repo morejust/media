@@ -1,9 +1,10 @@
 import axios from 'axios'
 
-const AI_ROOT = `https://ai.morejust.media`
+const AI_PROD_ROOT = `https://ai.morejust.media`
+const AI_CLUSTER_ROOT = `https://phystech.tv:5000`
 const AI_DEV_ROOT = `http://localhost:5000`
-
-axios.defaults.baseURL = AI_ROOT
+      
+axios.defaults.baseURL = AI_CLUSTER_ROOT
 
 axios.interceptors.response.use(({ data }) => {
   if (!data) return Promise.reject(`Malformed response`)
