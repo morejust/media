@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const AI_PROD_ROOT = `https://ai.morejust.media`
-const AI_CLUSTER_ROOT = `https://phystech.tv:5000`
+const AI_CLUSTER_ROOT = `http://phystech.tv:5000`
 const AI_DEV_ROOT = `http://localhost:5000`
       
 axios.defaults.baseURL = AI_CLUSTER_ROOT
