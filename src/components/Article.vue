@@ -22,7 +22,7 @@
 
     <p></p>
 
-    <v-container v-if="isHTMLReady">
+    <v-container v-if="isHTMLReady" style="max-width: 100vw;">
       <InteractiveText :html="rawHtml" :callback="onHighlight" />
       <p>
         Source: <a :href="article.url" target="_blank">{{ article.url }}</a>
