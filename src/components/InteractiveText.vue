@@ -14,7 +14,7 @@ export default {
   }),
   methods: {
     onClick: function ({ target }) {
-      if ( target === this.focus ) {
+      if (target === this.focus) {
         this.undoHighlight()
       } else {
         this.doHighlight({ target })
