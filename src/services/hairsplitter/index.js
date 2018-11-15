@@ -2,22 +2,23 @@ export const getColor = (hue, saturation, alpha) =>
   `hsla(${hue}, ${(saturation * 100).toFixed(0)}%, 50%, ${(alpha * 100).toFixed(0)})`
 
 export const htmlForHighlight = (highlight, type = 'text') => {
-  const { offset, content, ...rest } = highlight
+  const { offset, content, properties, ...rest } = highlight
 
   const style = ``
 
   return `<span
-    style="${style}"
-    class="highlight highlight-${type.replace(' ', '-')} highlight-${type.replace(' ', '-')}-${offset}"
-    data-type="${type}"
-    data-content="${content}"
-    data-offset="${offset}"
+    style='${style}'
+    class='highlight highlight-${type.replace(' ', '-')} highlight-${type.replace(' ', '-')}-${offset}'
+    data-type='${type}'
+    data-content='${content}'
+    data-offset='${offset}'
+    data-properties='${JSON.stringify(properties)}'
     >${content}</span>`
 
 }
 
 export const htmlForSentiment = (entity) => {
-  const { sentiment, magnitude, offset, content } = entity
+  const { properties, offset, content } = entity
 
   const highlightColor = sentiment > 0
     ? getColor(118, Math.abs(sentiment) + 0.5, magnitude)
@@ -27,26 +28,33 @@ export const htmlForSentiment = (entity) => {
 
   return (
     `<span
-      style="${style}"
-      class="highlight highlight-sentiment-${offset}"
-      data-type="sentiment"
-      data-content="${content}"
-      data-offset="${offset}"
-      data-magnitude=${magnitude}
-      data-sentiment=${sentiment}
+      style='${style}'
+      class='highlight highlight-sentiment-${offset}'
+      data-type='sentiment'
+      data-content='${content}'
+      data-offset='${offset}'
+      data-properties='${JSON.stringify(properties)}'
       >${content}</span>`
   )
 }
-
-export const convertTokens = (text, tokens, type) =>
-tokens
-  .filter(token => token.type === type)
-  .map((token) => {
-    const { offset, content } = token
+export const convertTokens = (text, tokens) =>
+  tokens.map((token) => {
+    const { type, offset, content, properties } = token
 
     const html = htmlForHighlight(token, type)
 
-    return { type, offset, html, content }
+    return { type, offset, html, content, properties }
+  })
+
+export const convertTokensForType = (text, tokens, type) =>
+tokens
+  .filter(token => token.type === type)
+  .map((token) => {
+    const { offset, content, properties } = token
+
+    const html = htmlForHighlight(token, type)
+
+    return { type, offset, html, content, properties }
   })
 
 export const convertAiTokens = (text, entities) =>

@@ -60,11 +60,11 @@ export default {
         const parsing_result = await api.analyse(url)
         console.log(parsing_result)
 
-        const { post } = parsing_result
+        const { article } = parsing_result
 
-        if (!post) throw new Error(`Bad API response: No post data`)
+        if (!article) throw new Error(`Bad API response: No post data`)
 
-        const { title, text, image } = post
+        const { title, text, image } = article
 
         if (!text) throw new Error(`Bad API response: Empty text`)
 

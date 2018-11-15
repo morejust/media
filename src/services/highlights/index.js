@@ -1,10 +1,13 @@
 export const getTipMessage = (data) => {
-  const { offset, type, content } = data
-  console.log('highlight', { offset, type, content })
+  const { offset, type, content, properties } = data
+  console.log('highlight', { offset, type, content, properties })
 
   switch (type) {
     case 'sentiment':
-      const _sentiment = parseFloat(data.sentiment) || 0.0
+    case 'sentiment_negative_google':
+    case 'sentiment_positive_google':
+      const props = JSON.parse(properties) || {}
+      const _sentiment = parseFloat(props.sentiment) || 0.0
 
       return {
         title: `

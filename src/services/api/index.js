@@ -31,6 +31,6 @@ export default {
   analyse: async (url) => {
     const parsed = await axios.get(`/parse?url=${url}`)
 
-    return axios.post(`/analyse`, parsed)
+    return axios.post(`/v2/analyse`, parsed)
   }
 }

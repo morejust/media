@@ -100,7 +100,7 @@ import InteractiveText from '@/components/InteractiveText.vue'
 import { getTipMessage } from '@/services/highlights'
 
 import {
-  extract, convertHtml, convertTokens, convertAiTokens
+  extract, convertHtml, convertTokens,
 } from '@/services/hairsplitter'
 
 export default {
@@ -136,33 +136,20 @@ export default {
       this.tip = getTipMessage(data)
     },
     highlight: function () {
-      const { title, text, html, entities, stopwords, checkFacts } = this.article
+      const { title, text, html_tags, entities } = this.article
 
       if (!title) return
 
-      const html_tokens = convertHtml(text, html)
+      const html_tokens = convertHtml(text, html_tags)
 
-      const filteredEntities = entities
-        .filter(entity => entity.salience > 0.001)
-        .flatMap(entity => entity.mentions)
-        .filter(entity => entity.magnitude != 0)
-
-      const ai_tokens = convertAiTokens(text, filteredEntities)
-
-      const fact_tokens = convertTokens(text, checkFacts, 'fact')
-
-      const general_tokens = convertTokens(text, stopwords, 'generalization')
-      const cliche_tokens = convertTokens(text, stopwords, 'journalism cliches')
+      const ai_tokens = convertTokens(text, entities)
 
       console.log(text)
-      console.log(cliche_tokens)
+      console.log(ai_tokens)
 
       this.highlights = [
         ...ai_tokens,
         ...html_tokens,
-        ...fact_tokens,
-        ...cliche_tokens,
-        ...general_tokens,
       ]
 
       const tokens = extract(text, this.highlights)
