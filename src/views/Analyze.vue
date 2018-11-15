@@ -19,7 +19,6 @@
               <br>
               <br>
               <GoRead />
-            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
