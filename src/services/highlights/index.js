@@ -20,7 +20,7 @@ export const getTipMessage = (data) => {
           Usually, it can be used to manipulate your opinion.
         `
       }
-    case 'fact':
+    case 'key_phrase':
       return {
         title: `
           Does the article prove this fact?
@@ -29,7 +29,7 @@ export const getTipMessage = (data) => {
           Looks like this is one of the main messages in the article.
           Try asking yourself: Could this statement be false?
 
-          <a href="#">It is false? Help us collect the data</a>
+          <a href="https://t.me/morejustmedia/">It is false? Help us collect the data</a>
         `
       }
     case 'generalization':
