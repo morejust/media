@@ -15,17 +15,6 @@
           </v-text-field>
         </v-flex>
         <v-flex xs12>
-            <v-btn
-              slot="append-outer"
-              style="top: -58px"
-              offset-y
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              v-on:click="submitForm"
-            >
-              Process
-            </v-btn>
 
             <v-btn
               slot="append-outer"
@@ -38,6 +27,19 @@
             >
               Random Article
             </v-btn>
+
+            <v-btn
+              slot="append-outer"
+              style="top: -58px"
+              offset-y
+              class="blue lighten-2 mt-5"
+              dark
+              large
+              v-on:click="submitForm"
+            >
+              Process
+            </v-btn>
+
 
           </v-text-field>
         </v-flex>
