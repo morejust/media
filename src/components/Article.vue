@@ -39,6 +39,7 @@
 </template>
 
 <style type="text/css">
+
   .reading-mode {
     text-align: left;
     max-width: 700px;
@@ -67,33 +68,11 @@
   .tip .card {
     background: #f4e842;
   }
-
-  .highlight {
-    /* -webkit-text-decoration: underline;
-    -webkit-text-decoration-color: #f4e842;
-    text-decoration: underline;
-    text-decoration-color: #f4e842; */
-
-    border-bottom: 2px solid #f4e842;
-    /* background: #f4e842; */
-  }
-
-  .highlight-fact {
-    /* -webkit-text-decoration-color: #ff49bc;
-    text-decoration-color: #ff49bc; */
-    border-bottom: 2px solid #ff49bc;
-    /* background: #ff49bc; */
-  }
-
-  .highlight-generalization {
-    /* -webkit-text-decoration-color: #fcb423;
-    text-decoration-color: #fcb423; */
-    border-bottom: 2px solid #fcb423;
-    /* background: #fcb423; */
-  }
 </style>
 
 <script>
+import styles from '@/style/classes.css'
+
 import Tip from '@/components/Tip.vue'
 import InteractiveText from '@/components/InteractiveText.vue'
 
