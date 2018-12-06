@@ -68,6 +68,8 @@ export default {
 
         if (!text) throw new Error(`Bad API response: Empty text`)
 
+        document.title = `${title} – More Just Media`
+
         this.article = { url, title, text, image, ...parsing_result }
 
         console.log('this.article', this.article)
