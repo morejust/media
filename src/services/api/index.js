@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const AI_PROD_ROOT = `https://morejustmedia.herokuapp.com/`
-const AI_CLUSTER_ROOT = `https://api.morejust.media`
+const AI_PROD_ROOT = `https://morejustmedia.herokuapp.com`
+const AI_CLUSTER_ROOT = `https://morejustmedia.herokuapp.com`
 const AI_DEV_ROOT = `http://localhost:5000`
       
 axios.defaults.baseURL = AI_CLUSTER_ROOT
