@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const AI_PROD_ROOT = `https://api.morejust.media`
+const AI_PROD_ROOT = `https://morejustmedia.herokuapp.com/`
 const AI_CLUSTER_ROOT = `https://api.morejust.media`
 const AI_DEV_ROOT = `http://localhost:5000`
       
