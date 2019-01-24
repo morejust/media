@@ -18,3 +18,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+chrome-ext.pem
+chrome-ext.crx
+chrome-ext.zip
