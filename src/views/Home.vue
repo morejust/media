@@ -14,14 +14,40 @@
 
           <h1 class="white--text mb-2 display-1 text-xs-center">Reading. Reinvented.</h1>
           <div class="subheading mb-3 text-xs-center">Powered by morejust.media</div>
-          <v-btn
-            class="blue lighten-2 mt-5"
-            dark
-            large
-            href="/analyze"
-          >
-            Get Started
-          </v-btn>
+
+          <div>
+
+            <v-btn
+              class="green lighten-1 mt-5"
+              dark
+              large
+              href="https://chrome.google.com/webstore/detail/more-just-media-less-irra/cllododbccgoimpahfgglohebdefpffh"
+              target="_blank"
+            >
+              Install for Chrome
+            </v-btn>
+
+            <v-btn
+              class="blue lighten-1 mt-5"
+              dark
+              large
+              href="/analyze"
+            >
+              Try Demo
+            </v-btn>
+
+            <v-btn
+              class="lighten-2 mt-5"
+              dark
+              large
+              href="https://docs.google.com/presentation/d/1db-guO3xtcdDKcN0wTpQYKKzHxqpMlEDBWBgLyHKQWc/edit#slide=id.g57f08ed57f_4_41"
+              target="_blank"
+            >
+              Learn More
+            </v-btn>
+
+          </div>
+
         </v-layout>
       </v-parallax>
     </section>
