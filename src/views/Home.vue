@@ -31,9 +31,19 @@
               class="blue lighten-1 mt-5"
               dark
               large
-              href="/analyze"
+              href="https://gramup.typeform.com/to/yOuqQI"
+              target="_blank"
             >
-              Try Demo
+              We Have Questions!
+            </v-btn>
+
+            <v-btn
+            class="blue lighten-1 mt-5"
+            dark
+            large
+            href="/analyze"
+            >
+            Try Demo
             </v-btn>
 
             <v-btn
