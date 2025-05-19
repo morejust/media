@@ -15,7 +15,6 @@
     </v-flex>
   </v-layout>
 
-
 </template>
 
 <style type="text/css">

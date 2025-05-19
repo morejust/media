@@ -25,11 +25,9 @@
   </v-content>
 </template>
 
-
 <script>
 import api from '@/services/api'
 import Article from '@/components/Article.vue'
-
 
 export default {
   name: 'ReadMode',
@@ -73,18 +71,16 @@ export default {
         this.article = { url, title, text, image, ...parsing_result }
 
         console.log('this.article', this.article)
-      }
-      catch (err) {
+      } catch (err) {
         this.error = err.message
         console.log('err', err.message)
-      }
-      finally {
+      } finally {
         this.isLoading = false
       }
     }
   },
   components: {
-    Article,
+    Article
   }
 }
 </script>

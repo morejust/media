@@ -14,7 +14,6 @@ export const htmlForHighlight = (highlight, type = 'text') => {
     data-offset='${offset}'
     data-properties='${JSON.stringify(properties)}'
     >${content}</span>`
-
 }
 
 export const htmlForSentiment = (entity) => {
@@ -47,15 +46,15 @@ export const convertTokens = (text, tokens) =>
   })
 
 export const convertTokensForType = (text, tokens, type) =>
-tokens
-  .filter(token => token.type === type)
-  .map((token) => {
-    const { offset, content, properties } = token
+  tokens
+    .filter(token => token.type === type)
+    .map((token) => {
+      const { offset, content, properties } = token
 
-    const html = htmlForHighlight(token, type)
+      const html = htmlForHighlight(token, type)
 
-    return { type, offset, html, content, properties }
-  })
+      return { type, offset, html, content, properties }
+    })
 
 export const convertAiTokens = (text, entities) =>
   entities.map(entity => {
@@ -72,7 +71,7 @@ export const convertHtml = (text, html) =>
   })
 
 export const extract = (text, markup) => {
-  const byOffset = (a,b) => {
+  const byOffset = (a, b) => {
     return a.offset - b.offset || (
       a.type === 'begin' ? -1 : 0
     ) || (
@@ -95,13 +94,13 @@ export const extract = (text, markup) => {
   markup.push({
     type: 'begin',
     offset: 0,
-    content: '',
+    content: ''
   })
 
   markup.push({
     type: 'end',
     offset: text.length,
-    content: '',
+    content: ''
   })
 
   const tokens = markup.sort(byOffset)

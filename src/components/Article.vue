@@ -79,12 +79,12 @@ import InteractiveText from '@/components/InteractiveText.vue'
 import { getTipMessage } from '@/services/highlights'
 
 import {
-  extract, convertHtml, convertTokens,
+  extract, convertHtml, convertTokens
 } from '@/services/hairsplitter'
 
 export default {
   name: 'Article',
-  props: ["article"],
+  props: ['article'],
   created: async function () {
 
   },
@@ -99,7 +99,7 @@ export default {
   },
   components: {
     InteractiveText,
-    Tip,
+    Tip
   },
   methods: {
     onHighlight: function (element) {
@@ -128,7 +128,7 @@ export default {
 
       this.highlights = [
         ...ai_tokens,
-        ...html_tokens,
+        ...html_tokens
       ]
 
       const tokens = extract(text, this.highlights)
@@ -142,7 +142,6 @@ export default {
         this.rawHtml = rawHtml
         this.isHTMLReady = true
       }
-
     }
   },
   data: ({ article: { url, title, text, html, entities } }) => ({
@@ -159,7 +158,7 @@ export default {
     isHTMLReady: false,
     isAIReady: false,
     rawHtml: '',
-    highlights: [],
+    highlights: []
   })
 }
 </script>

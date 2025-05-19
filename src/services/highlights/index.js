@@ -12,7 +12,7 @@ export const getTipMessage = (data) => {
       return {
         title: `
           '${content}' has ${
-          _sentiment > 0 ? 'positive' : 'negative'}
+  _sentiment > 0 ? 'positive' : 'negative'}
           sentiment here (${_sentiment.toFixed(2)})
         `,
         message: `

@@ -5,7 +5,6 @@ import Analyze from './views/Analyze.vue'
 
 Vue.use(Router)
 
-
 export default new Router({
   mode: 'history',
   routes: [

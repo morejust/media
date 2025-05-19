@@ -3,14 +3,13 @@ import axios from 'axios'
 const AI_PROD_ROOT = `https://morejustmedia.herokuapp.com`
 const AI_CLUSTER_ROOT = `https://morejustmedia.herokuapp.com`
 const AI_DEV_ROOT = `http://localhost:5000`
-      
+
 axios.defaults.baseURL = AI_CLUSTER_ROOT
 
 axios.interceptors.response.use(({ data }) => {
   if (!data) return Promise.reject(`Malformed response`)
 
   const { error, ...rest } = data
-
 
   if (error) {
     return Promise.reject(`Error: ${rest.description}`)

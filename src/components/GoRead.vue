@@ -40,7 +40,6 @@
               Process
             </v-btn>
 
-
           </v-text-field>
         </v-flex>
       </v-layout>
@@ -76,7 +75,7 @@ const topics = [
   'Donald Trump',
   'Putin',
   'Germany',
-  'Spain',
+  'Spain'
 ]
 
 export default {
@@ -104,7 +103,6 @@ export default {
         }
 
         this.loadURL(this.url)
-
       } catch (err) {
         this.url = ''
       }

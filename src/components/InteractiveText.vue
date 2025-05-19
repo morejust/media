@@ -39,7 +39,7 @@ export default {
       //
       // if (isHighlight) {
       // }
-    },
+    }
   }
 }
 </script>
