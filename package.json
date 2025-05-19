@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "vercel-build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",

@@ -16,8 +16,10 @@
 
     <link href='https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro:400,700|Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
 
+    <% if (process.env.NODE_ENV !== 'production') { %>
     <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"8b21ed0e1ef64c03640ac1bda","lid":"ac5a80cda6","uniqueMethods":true}) })</script>
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/8b21ed0e1ef64c03640ac1bda/e9c3ffc9ca41df0951ba3eb60.js");</script>
+    <% } %>
 
   </head>
   <body>
@@ -61,6 +63,7 @@
     <!-- End Single Page Apps for GitHub Pages -->
 
     <!-- Yandex.Metrika counter -->
+    <% if (process.env.NODE_ENV !== 'production') { %>
     <script type="text/javascript" >
         (function (d, w, c) {
             (w[c] = w[c] || []).push(function() {
@@ -88,6 +91,7 @@
         })(document, window, "yandex_metrika_callbacks2");
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/50441212" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <% } %>
     <!-- /Yandex.Metrika counter -->
     
   </body>
