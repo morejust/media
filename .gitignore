@@ -22,3 +22,7 @@ yarn-error.log*
 chrome-ext.pem
 chrome-ext.crx
 chrome-ext.zip
+
+dist
+
+
