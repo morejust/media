@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/',
+  baseUrl: '/',
   productionSourceMap: false,
   configureWebpack: {
     performance: {
